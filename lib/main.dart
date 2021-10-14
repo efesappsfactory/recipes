@@ -40,8 +40,13 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: ListView.builder(
           itemCount: Recipe.samples.length,
-          itemBuilder: (BuildContext context, int index) =>
-              buildRecipeCard(Recipe.samples[index]),
+          itemBuilder: (BuildContext context, int index) => GestureDetector(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Text('Detail Page')),
+            ),
+            child: buildRecipeCard(Recipe.samples[index]),
+          ),
         ),
       ),
     );
